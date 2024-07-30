@@ -2,3 +2,5 @@ node_modules
 .next
 .env
 hash.js
+insertAdmin.ts
+tsconfig.scripts.json
