@@ -17,7 +17,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "insert-admin": "ts-node --project tsconfig.scripts.json insertAdmin.ts"
+    "migrate": "sequelize db:migrate",
+    "insert-admin": "ts-node insertAdmin.ts"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
