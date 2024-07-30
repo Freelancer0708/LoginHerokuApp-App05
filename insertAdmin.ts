@@ -9,10 +9,7 @@ const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+  database: process.env.MYSQL_DATABASE, // 修正
 });
 
 async function insertAdmin(username: string, password: string) {
@@ -20,7 +17,7 @@ async function insertAdmin(username: string, password: string) {
 
   try {
     const [result] = await pool.query(
-      'INSERT INTO admins (email, password, createdAt, updatedAt) VALUES (?, ?, NOW(), NOW())',
+      'INSERT INTO admins (email, password) VALUES (?, ?)', // テーブル名を小文字に修正
       [username, hashedPassword]
     );
     console.log('Admin user inserted successfully');
